@@ -1,4 +1,4 @@
-﻿package com.yj.oa.common.utils.ftp;
+package com.yj.oa.common.utils.ftp;
 
 import com.yj.oa.common.utils.DateUtils;
 import com.yj.oa.common.utils.HttpHeaderUtil;
