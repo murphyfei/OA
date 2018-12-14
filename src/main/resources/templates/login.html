@@ -16,7 +16,7 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
-    <link rel="shortcut icon" href="../static/favicon.ico" th:href="@{favicon.ico}"/>
+    <link rel="shortcut icon" href="../static/favicon.ico" th:href="@{../static/favicon.ico}"/>
     <script>
         if (window.top !== window.self) {
             window.top.location = window.location
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-xs-6">
                         <a href="javascript:void(0);" title="点击更换验证码">
-                            <img src="/code/getVerify" width="95%" class="imgcode"/>
+                            <img src="/code/getVerify" th:src="@{/code/getVerify}" width="95%" class="imgcode"/>
                         </a>
                     </div>
                 </div>
@@ -50,8 +50,10 @@
         </div>
     </div>
 </div>
-<script th:inline="javascript"> var ctx = [[@{
-    /}]]; var captchaType = [[${captchaType}]]; </script>
+<script th:inline="javascript">
+    var ctx = [[@{/}]];
+    var captchaType = [[${captchaType}]];
+</script>
 <!-- 全局js -->
 <script src="../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
@@ -59,7 +61,8 @@
 <script src="../ajax/libs/validate/jquery.validate.min.js"
         th:src="@{/ajax/libs/validate/jquery.validate.min.js}"></script>
 <script src="../ajax/libs/validate/messages_zh.min.js" th:src="@{/ajax/libs/validate/messages_zh.min.js}"></script>
-<script src="../ajax/libs/layer/layer.min.js" th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+<script src="../ajax/libs/layui/layui.js" th:src="@{/ajax/libs/layui/layui.js}"></script>
+<script src="../ajax/libs/layui/layer.min.js" th:src="@{/ajax/libs/layer/layer.min.js}"></script>
 <script src="../ajax/libs/iCheck/icheck.min.js" th:src="@{/ajax/libs/iCheck/icheck.min.js}"></script>
 <script src="../ajax/libs/blockUI/jquery.blockUI.js" th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
 <script src="http://tajs.qq.com/stats?sId=62048022"></script>

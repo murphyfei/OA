@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--360浏览器优先以webkit内核解析-->
     <title></title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="../static/favicon.ico" th:href="@{favicon.ico}"/>
     <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
     <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
@@ -118,7 +118,7 @@
                 <div class="ibox-title">
                     <h5>考勤</h5>
                 </div>
-                <div class="calendar ibox-content" style="background-image: url('/img/attendlock.jpg')">
+                <div class="calendar ibox-content" style="background-image: url('../img/attendlock.jpg')">
                     <!--<div class="row">-->
                     <!--<div align="center" id="currentDate"></div>-->
                     <!--</div>-->
@@ -142,7 +142,7 @@
                         <div class="col-sm-7">
                             <div align="center" id="currentDate"></div>
                             <div class="lock">
-                                <img onclick="attend()" src="/img/lock.png" class="img-circle">
+                                <img onclick="attend()" src="/img/lock.png" th:src="@{/img/lock.png}" class="img-circle">
                             </div>
                             <div align="center" class="Attendtips">
                                 签到时间：<span  id="attendTime">无</span>
@@ -267,7 +267,7 @@
 
 
     function isAttend() {
-        $.post("/attend/isAttend", {}, function (data) {
+        $.post(ctx+"attend/isAttend", {}, function (data) {
             if (data != null && JSON.stringify(data).length > 2) {
                 var time = $.common.dateFormat(data);
                 var date = time.substring(10, time.length);
@@ -281,7 +281,7 @@
     //点击打卡
     function attend() {
         //判断是否已经签到了
-        $.post("/attend/isAttend", {}, function (data) {
+        $.post(ctx+"attend/isAttend", {}, function (data) {
             layer.confirm("是否签到？", {
                 icon: 3,
                 title: "系统提示",
@@ -289,7 +289,7 @@
                 btnclass: ["btn btn-primary", "btn btn-danger"]
             }, function (index) {
                 layer.close(index);
-                $.post("/attend/addSave", {}, function (data) {
+                $.post(ctx+"attend/addSave", {}, function (data) {
                     if (data.code == web_status.SUCCESS) {
                         layer.msg("已签到", {icon: $.modal.icon('success'), time: 500, shade: [0.1, "#8F8F8F"]})
                         isAttend();
@@ -306,12 +306,12 @@
 
     //查看通知信息
     function checkMeetMsg(id) {
-        $.modal.openFull("会议详情", "/oa/editMeet/" + id);
+        $.modal.openFull("会议详情", ctx+"oa/editMeet/" + id);
     }
 
     //查看公告
     function checkNoticeMsg(id) {
-        $.modal.openFull("公告详情", "/oa/editNotice/" + id);
+        $.modal.openFull("公告详情", ctx+"oa/editNotice/" + id);
     }
 
     //查看任务
@@ -323,13 +323,13 @@
             maxmin: true,
             shade: 0.3,
             title: "查看申请消息",
-            content: "/task/edit/" + formKey + "/" + procInstId + "/" + taskId
+            content: ctx+"task/edit/" + formKey + "/" + procInstId + "/" + taskId
         })
     }
 
     //查看便签
     function checkNoteMsg(id) {
-        $.modal.open("修改便签", "/note/edit/" + id);
+        $.modal.open("修改便签", ctx+"note/edit/" + id);
     }
 
 
@@ -346,7 +346,7 @@
             , theme: 'molv'
             , mark: getMapDates()
             , done: function (value, date, enddate) {
-                var url = "/schedule/editMore/" + value;
+                var url = ctx+"schedule/editMore/" + value;
                 $.modal.open("日程查看", url);
 
             }
@@ -355,7 +355,7 @@
         function getMapDates() {
             var map_ = new Map();
             $.ajaxSettings.async = false;
-            $.post("/schedule/ajaxgetMap", {}, function (data) {
+            $.post(ctx+"schedule/ajaxgetMap", {}, function (data) {
                 map_ = data;
             })
             return map_;

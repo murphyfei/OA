@@ -51,7 +51,7 @@
 				roleName:{
 					required:true,
 					remote: {
-		                url:  "/role/checkRoleNameUnique",
+		                url: ctx+"role/checkRoleNameUnique",
 		                type: "post",
 		                dataType: "json",
 		                data: {
@@ -94,7 +94,7 @@
             $.ajax({
                 cache : true,
                 type : "POST",
-                url : "/role/editSave",
+                url : ctx+"role/editSave",
                 data : {
                     "roleId": roleId,
                     "roleName": roleName,

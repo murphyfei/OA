@@ -52,7 +52,7 @@
             $.ajax({
                 cache: true,
                 type: "POST",
-                url: "/note/addSave",
+                url: ctx+"note/addSave",
                 data: $("form").serializeArray(),
                 async: false,
                 error: function (request) {

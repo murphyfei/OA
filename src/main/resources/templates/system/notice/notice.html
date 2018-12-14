@@ -58,7 +58,7 @@
 </div>
 <div th:include="include :: footer"></div>
 <script th:inline="javascript">
-    var prefix = "/notice";
+    var prefix = ctx+"notice";
     var updateFlag = [[${@permission.hasPermi('notice:update')}]];
     var delFlag = [[${@permission.hasPermi('notice:del')}]];
     $(function () {

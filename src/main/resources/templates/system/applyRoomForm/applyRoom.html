@@ -46,13 +46,13 @@
 <div th:include="include :: footer"></div>
 
 <script th:inline="javascript">
-    var prefix = "/applyRoomForm";
+    var prefix = ctx+"applyRoomForm";
     var updatedFlag = [[${@permission.hasPermi('"myApply:update')}]];
     var delFlag = [[${@permission.hasPermi('"myApply:del')}]];
     $(function () {
         var options = {
             url: prefix + "/TableMyApplRoomMyHiList",
-            pictureUrl: "/task/flowChart/{id}", //流程图
+            pictureUrl:ctx+"task/flowChart/{id}", //流程图
             updateUrl: prefix + "/edit/{id}",
             removeUrl: prefix + "/del",
             sortName: "START_TIME_",  //对应数据库表述中的字段
@@ -125,7 +125,7 @@
     });
 
     function ViewProcess(procInstId) {
-        $.modal.open("审批流程", "/hiActi/HiProcActiList/" + procInstId);
+        $.modal.open("审批流程", ctx+"hiActi/HiProcActiList/" + procInstId);
     }
 
 

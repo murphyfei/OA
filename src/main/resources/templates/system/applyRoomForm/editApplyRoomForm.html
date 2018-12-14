@@ -87,7 +87,7 @@
 <div th:include="include::footer"></div>
 <script type="text/javascript">
 
-    var prefix = "/applyRoomForm";
+    var prefix = ctx+"applyRoomForm";
     $("#formId").validate({
         submitHandler: function(form) {
             $.operate.save(prefix + "/editSave", $('#formId').serialize());

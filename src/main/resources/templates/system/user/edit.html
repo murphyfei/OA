@@ -139,7 +139,7 @@
                     email:true,
                     //校验是否唯一
                     remote: {
-                        url: "/user/checkEmailUnique",
+                        url: ctx+"user/checkEmailUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -161,7 +161,7 @@
                     required:true,
                     //校验是否唯一
                     remote: {
-                        url: "/user/checkLoginNameUnique",
+                        url: ctx+"user/checkLoginNameUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -182,7 +182,7 @@
         			required:false,
         			isPhone:true,
                     remote: {
-                        url: "/user/checkPhoneUnique",
+                        url: ctx+"user/checkPhoneUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -231,7 +231,7 @@
         	$.ajax({
         		cache : true,
         		type : "POST",
-        		url : "/user/editSave",
+        		url : ctx+"user/editSave",
         		data : {
         			"uid": userId,
         			"dept": deptId,

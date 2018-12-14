@@ -57,7 +57,7 @@
 
 <script th:inline="javascript">
 
-    var prefix = "/attendCount";
+    var prefix = ctx+"attendCount";
     var updateFlag = [[${@permission.hasPermi('"leave:update')}]];
     var addFlag = [[${@permission.hasPermi('"leave:add')}]];
 

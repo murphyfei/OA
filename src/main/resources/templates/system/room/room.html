@@ -57,7 +57,7 @@
 </div>
 <div th:include="include :: footer"></div>
 <script th:inline="javascript">
-    var prefix = "/room";
+    var prefix = ctx+"room";
     //thymleaf 表达式 js与后端交互
     var addFlag = [[${@permission.hasPermi('meetRoom:add')}]];
     var updateFlag = [[${@permission.hasPermi('meetRoom:update')}]];
@@ -130,7 +130,7 @@
     });
 
     function addApplyForm(roomName) {
-        $.modal.open("填写申请表单", "/applyRoomForm/toAdd/"+roomName);
+        $.modal.open("填写申请表单", ctx+"applyRoomForm/toAdd/"+roomName);
     }
 
 </script>

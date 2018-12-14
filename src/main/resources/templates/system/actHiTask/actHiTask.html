@@ -59,11 +59,11 @@
 <div th:include="include :: footer"></div>
 
 <script th:inline="javascript">
-    var prefix = "/hiTask"
+    var prefix =ctx+ "hiTask"
     $(function () {
         var options = {
             url: prefix + "/TableMyHiTasklList",
-            pictureUrl:"/task/flowChart/{id}", //流程图
+            pictureUrl:ctx+"task/flowChart/{id}", //流程图
             updateUrl: prefix + "/edit/{id}",
             removeUrl:prefix+"/del",
             sortName: "START_TIME_",  //对应数据库表述中的字段
@@ -136,7 +136,7 @@
     });
 
     function ViewProcess(taskId) {
-        $.modal.open("审批流程", "/hiActi/HiProcActiList/"+taskId);
+        $.modal.open("审批流程", ctx+"hiActi/HiProcActiList/"+taskId);
     }
 
 </script>

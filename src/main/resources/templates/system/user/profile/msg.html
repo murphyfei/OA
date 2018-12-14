@@ -155,12 +155,12 @@
 
     /*用户管理-重置密码*/
     function resetPwd() {
-        var url = '/user/resetMyPwd';
+        var url = ctx+'user/resetMyPwd';
         $.modal.open("重置密码", url, '800', '500');
     }
     /** 修改头像**/
     function avatar() {
-        var url = '/user/updateAvatar';
+        var url = ctx+'user/updateAvatar';
         $.modal.openFull("修改头像", url);
     }
 
@@ -171,7 +171,7 @@
                 required:false,
                 email:true,
                 remote: {
-                    url: "/user/checkEmailUnique",
+                    url: ctx+"user/checkEmailUnique",
                     type: "post",
                     dataType: "json",
                     data: {
@@ -192,7 +192,7 @@
                 required:false,
                 isPhone:true,
                 remote: {
-                    url: "/user/checkPhoneUnique",
+                    url: ctx+"user/checkPhoneUnique",
                     type: "post",
                     dataType: "json",
                     data: {
@@ -225,7 +225,7 @@
             maxlength:150,
         },
         submitHandler:function(form){
-            $.operate.save("/user/editSave", $('#form-user-edit').serialize());
+            $.operate.save(ctx+"user/editSave", $('#form-user-edit').serialize());
         }
     });
 

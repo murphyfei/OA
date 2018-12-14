@@ -3,7 +3,7 @@ $(function() {
     validateRule();
     $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
 	$('.imgcode').click(function() {
-		var url =  "/code/getVerify?"+ Math.random();
+		var url =  ctx+"code/getVerify?"+ Math.random();
 		$(".imgcode").attr("src", url);
 	});
 });
@@ -22,7 +22,7 @@ function login() {
     var rememberMe = $("input[name='rememberme']").is(':checked');
     $.ajax({
         type: "post",
-        url: "/oa/login",
+        url: ctx+"oa/login",
         data: {
             "name": username,
             "pwd": password,
@@ -31,7 +31,7 @@ function login() {
         },
         success: function(r) {
             if (r.code == 0) {
-                location.href ='/oa/index';
+                location.href =ctx+'oa/index';
             } else {
             	$.modal.closeLoading();
             	$('.imgcode').click();

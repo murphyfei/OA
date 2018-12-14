@@ -103,7 +103,7 @@
             var array1;
 
             $.ajaxSettings.async = false;
-            $.post("/menu/ajaxlist", {}, function (data) {
+            $.post(ctx+"menu/ajaxlist", {}, function (data) {
                 array1 = data;
             })
             return array1;
@@ -117,7 +117,7 @@
             $.ajax({
                 cache: true,
                 type: "POST",
-                url: "/role/editPowerSave",
+                url: ctx+"role/editPowerSave",
                 traditional: true,
                 data: {
                     "roleId": roleId,
@@ -140,7 +140,7 @@
             var treeObj = $.fn.zTree.getZTreeObj("menuTrees");
             var nodesAll = treeObj.getNodes(); //可以获取所有的节点
             var nodesArray = treeObj.transformToArray(nodesAll); // 将数据变成简单的 Array 集合
-            $.post("/role/selectById/" + roleId, {}, function (data) {
+            $.post(ctx+"role/selectById/" + roleId, {}, function (data) {
                 var powers = data.permissionList;
                 var node2="";
                 for (var i = 0; i < powers.length; i++) {

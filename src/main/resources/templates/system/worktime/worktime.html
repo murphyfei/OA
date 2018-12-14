@@ -52,7 +52,7 @@
 <script th:inline="javascript">
     var updateFlag = [[${@permission.hasPermi('workTime:update')}]];
     var delFlag = [[${@permission.hasPermi('workTime:del')}]];
-    var prefix = "/worktime";
+    var prefix = ctx+"worktime";
     $(function () {
         var options = {
             url: prefix + "/tableList",
@@ -151,7 +151,7 @@
 
     function update(id,status){
         $.ajaxSettings.async=true;
-        $.post("/worktime/updateStatus/",{id:id,status:status},function (data) {
+        $.post(ctx+"worktime/updateStatus/",{id:id,status:status},function (data) {
             $.operate.ajaxSuccess(data)
         }).error(function (data) {
             $.modal.alertError("系统错误！");

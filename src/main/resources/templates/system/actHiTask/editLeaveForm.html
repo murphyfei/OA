@@ -94,7 +94,7 @@
 <script th:src="@{/ajax/libs/select/select2.js}"></script>
 <script type="text/javascript">
 
-    var prefix = "/task";
+    var prefix = ctx+"task";
     $("#formId").validate({
         rules:{
             agent_Id:{

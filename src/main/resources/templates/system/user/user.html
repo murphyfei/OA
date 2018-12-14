@@ -133,7 +133,7 @@
             function initDeptData() {
                 var arr = new Array();
                 $.ajaxSettings.async = false;
-                $.post("/dept/ajaxlist", {}, function (data) {
+                $.post(ctx+"dept/ajaxlist", {}, function (data) {
                     for (var i = 0; i < data.length; i++) {
                         var treeData = {
                             "name": data[i].deptName,
@@ -151,10 +151,10 @@
         },
         queryUserList: function () {
             var options = {
-                url: "/user/tableList",
-                createUrl: "/user/toAdd",
-                updateUrl: "/user/edit/{id}",
-                removeUrl: "/user/del",
+                url: ctx+"user/tableList",
+                createUrl: ctx+"user/toAdd",
+                updateUrl: ctx+"user/edit/{id}",
+                removeUrl: ctx+"user/del",
                 // exportUrl: prefix + "/export",
                 sortName: "createTime",
                 sortOrder: "desc",
@@ -227,7 +227,7 @@
 
     /*用户管理-重置密码*/
     function resetPwd(userId) {
-        var url =  '/user/resetPwd/' + userId;
+        var url =  ctx+'user/resetPwd/' + userId;
         $.modal.open("重置密码", url, '800', '300');
     }
 

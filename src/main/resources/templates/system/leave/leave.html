@@ -53,14 +53,14 @@
 <div th:include="include :: footer"></div>
 
 <script th:inline="javascript">
-    var prefix = "/leave";
+    var prefix = ctx+"leave";
     var updateFlag = [[${@permission.hasPermi('"leave:update')}]];
     var addFlag = [[${@permission.hasPermi('"leave:add')}]];
     $(function () {
         var options = {
             url: prefix + "/TableMyLeaveHiList",
-            pictureUrl: "/task/flowChart/{id}", //流程图
-            createUrl: "/leave/toAdd",
+            pictureUrl: ctx+"task/flowChart/{id}", //流程图
+            createUrl: ctx+"leave/toAdd",
             removeUrl: prefix + "/del",
             updateUrl: "/leave/edit/{id}",
             sortName: "START_TIME_",  //对应数据库表述中的字段
@@ -147,13 +147,13 @@
 
 
     function ViewProcess(procInstId) {
-        $.modal.open("审批流程", "/hiActi/HiProcActiList/" + procInstId);
+        $.modal.open("审批流程", ctx+"hiActi/HiProcActiList/" + procInstId);
     }
 
     function submit(procInstId) {
         $.ajaxSettings.async = true;
         $.modal.loading("正在处理中，请稍后...");
-        $.post("/leave/submit", {
+        $.post(ctx+"leave/submit", {
             procInstId: procInstId
         }, function (result) {
             $.operate.ajaxSuccess(result)
@@ -163,7 +163,7 @@
     function giveUp(procInstId) {
         $.ajaxSettings.async = true;
         $.modal.loading("正在处理中，请稍后...");
-        $.post("/leave/giveUp", {
+        $.post(ctx+"leave/giveUp", {
             procInstId: procInstId
         }, function (result) {
             $.operate.ajaxSuccess(result)

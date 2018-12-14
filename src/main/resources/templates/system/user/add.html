@@ -155,7 +155,7 @@
         			required:false,
                     email:true,
                     remote: {
-                        url: "/user/checkEmailUnique",
+                        url: ctx+"user/checkEmailUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -172,7 +172,7 @@
                 loginName:{
                     required:true,
                     remote: {
-                        url: "/user/checkLoginNameUnique",
+                        url: ctx+"user/checkLoginNameUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -190,7 +190,7 @@
         			required:false,
         			isPhone:true,
                     remote: {
-                        url: "/user/checkPhoneUnique",
+                        url: ctx+"user/checkPhoneUnique",
                         type: "post",
                         dataType: "json",
                         data: {
@@ -247,7 +247,7 @@
                 $.ajax({
                     cache : true,
                     type : "POST",
-                    url :  "/user/addSave",
+                    url :  ctx+"user/addSave",
                     data : {
                         "dept": deptId,
                         "name": userName,
@@ -303,7 +303,7 @@
                 function initDeptData() {
                     var arr = new Array();
                     $.ajaxSettings.async = false;
-                    $.post("/dept/ajaxlist", {}, function (data) {
+                    $.post(ctx+"dept/ajaxlist", {}, function (data) {
                         for (var i = 0; i < data.length; i++) {
                             var treeData = {
                                 "name": data[i].deptName,

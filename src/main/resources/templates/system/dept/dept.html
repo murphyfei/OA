@@ -78,10 +78,10 @@
 
     function queryUserList() {
         var options = {
-            url: "/dept/tableList",
-            createUrl: "/dept/toAdd",
-            updateUrl: "/dept/edit/{id}",
-            removeUrl: "/dept/del",
+            url: ctx+"dept/tableList",
+            createUrl: ctx+"dept/toAdd",
+            updateUrl: ctx+"dept/edit/{id}",
+            removeUrl: ctx+"dept/del",
             sortName: "createTime",
             sortOrder: "desc",
             modalName: "部门",

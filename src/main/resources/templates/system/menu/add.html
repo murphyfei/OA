@@ -85,7 +85,7 @@
 <script th:src="@{/ajax/libs/jquery-layout/jquery.layout-latest.js}"></script>
 <script th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
 <script>
-    var prefix = "/menu"
+    var prefix = ctx+"menu"
     $("#form-menu-add").validate({
         rules: {
             perName: {
@@ -186,7 +186,7 @@
         initDeptData: function () {
             var arr = new Array();
             $.ajaxSettings.async = false;
-            $.post("/menu/ajaxlist", {}, function (data) {
+            $.post(ctx+"menu/ajaxlist", {}, function (data) {
                 arr=data;
             })
             return arr;

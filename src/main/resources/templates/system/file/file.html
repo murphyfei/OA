@@ -51,7 +51,7 @@
 </div>
 <div th:include="include :: footer"></div>
 <script th:inline="javascript">
-    var prefix = "/file";
+    var prefix = ctx+"file";
     var downloadFlag = [[${@permission.hasPermi('file:download')}]];
     var delFlag = [[${@permission.hasPermi('file:del')}]];
     $(function () {

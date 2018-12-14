@@ -54,7 +54,7 @@
 	</div>
 	<div th:include="include::footer"></div>
 	<script type="text/javascript">
-		var prefix = "/dept"
+		var prefix =ctx+"dept"
 	
 		$("#form-dept-add").validate({
 			rules:{
@@ -89,7 +89,7 @@
 		        }
 		    },
 			submitHandler:function(form){
-				$.operate.save("/dept/addSave",data());
+				$.operate.save(ctx+"dept/addSave",data());
 			}
 
 		});

@@ -162,7 +162,7 @@
 
             $.ajax({
                 type: "post",
-                url: "/attend/CalculationAttend",       //子表请求的地址
+                url: ctx+"attend/CalculationAttend",       //子表请求的地址
                 data: {attendId: id},//我这里是点击父表后，传递父表列id和nama到后台查询子表数据
                 async: false,           //很重要，这里要使用同步请求
                 success: function (data) {
@@ -225,7 +225,7 @@
 
 
     $('#bootstrap-table').bootstrapTable('destroy').bootstrapTable({
-        url: '/attend/tableList',
+        url: ctx+'attend/tableList',
         detailView: true,
         pagination: true,
         pageSize: 10,
@@ -352,7 +352,7 @@
 
     })
 function edit(id) {
-    $.modal.open("修改考勤记录", '/attend/edit/'+id);
+    $.modal.open("修改考勤记录", ctx+'attend/edit/'+id);
 }
 
 </script>

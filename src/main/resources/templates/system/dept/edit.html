@@ -56,7 +56,7 @@
 <div th:include="include::footer"></div>
 <script th:src="@{/ajax/libs/select/select2.js}"></script>
 <script type="text/javascript">
-    var prefix = "/dept"
+    var prefix = ctx+"dept"
 
     $("#form-dept-edit").validate({
         rules: {

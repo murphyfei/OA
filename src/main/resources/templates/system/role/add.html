@@ -91,7 +91,7 @@
         initDeptData: function () {
             var array1;
             $.ajaxSettings.async = false;
-            $.post("/menu/ajaxlist", {}, function (data) {
+            $.post(ctx+"menu/ajaxlist", {}, function (data) {
                 array1 = data;
             })
             return array1;
@@ -103,7 +103,7 @@
             roleName: {
                 required: true,
                 remote: {
-                    url: "/role/checkRoleNameUnique",
+                    url: ctx+"role/checkRoleNameUnique",
                     type: "post",
                     dataType: "json",
                     data: {
@@ -153,7 +153,7 @@
         $.ajax({
             cache: true,
             type: "POST",
-            url: "/role/addSave",
+            url: ctx+"role/addSave",
             data: {
                 "roleName": roleName,
                 "descr": descr,

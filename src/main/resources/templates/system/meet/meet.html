@@ -75,7 +75,7 @@
 <div th:include="include :: footer"></div>
 <script th:src="@{/ajax/libs/select/select2.js}"></script>
 <script th:inline="javascript">
-    var prefix = "/meet";
+    var prefix = ctx+"meet";
 
     var updateFlag = [[${@permission.hasPermi('"meet:update')}]];
     var delFlag = [[${@permission.hasPermi('"meet:del')}]];

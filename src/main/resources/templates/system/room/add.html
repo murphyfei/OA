@@ -58,13 +58,13 @@
     <script th:src="@{/ajax/libs/summernote/summernote-zh-CN.js}"></script>
     <script type="text/javascript">
 
-		var prefix =  "/room"
+		var prefix =  ctx+"room"
 		$("#form-notice-add").validate({
 			rules:{
                 meetRoomName:{
 					required:true,
                     remote: {
-                        url: "/room/checkRoomNameUnique",
+                        url: ctx+"room/checkRoomNameUnique",
                         type: "post",
                         dataType: "json",
                         data: {

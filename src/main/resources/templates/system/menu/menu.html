@@ -46,7 +46,7 @@
 
 <div th:include="include :: footer"></div>
 <script th:inline="javascript">
-    var prefix = "/menu"
+    var prefix = ctx+"menu"
     var updateFlag = [[${@permission.hasPermi('menu:update')}]];
     var delFlag = [[${@permission.hasPermi('"menu:del')}]];
     $(function () {

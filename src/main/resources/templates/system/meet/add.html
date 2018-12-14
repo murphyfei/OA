@@ -117,7 +117,7 @@
         initDeptData: function () {
             var array;
             $.ajaxSettings.async = false;
-            $.post("/dept/getDeptAndUserTreeData", {}, function (data) {
+            $.post(ctx+"dept/getDeptAndUserTreeData", {}, function (data) {
                 array = data;
             })
             return array;
@@ -144,7 +144,7 @@
         $.ajax({
             cache: true,
             type: "POST",
-            url: "/meet/addSave",
+            url: ctx+"meet/addSave",
             data: {
                 title: $('#title').val(),
                 descr: $('#descr').val(),

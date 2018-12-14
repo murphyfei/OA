@@ -52,7 +52,7 @@
 <script th:inline="javascript">
     var updateFlag = [[${@permission.hasPermi('schedule:update')}]];
     var delFlag = [[${@permission.hasPermi('schedule:del')}]];
-    var prefix = "/schedule";
+    var prefix = ctx+"schedule";
     $(function () {
         var options = {
             url: prefix + "/tableList",
@@ -142,7 +142,7 @@
 
     function updateComplete(id){
         $.ajaxSettings.async=true;
-        $.post("/schedule/updateComplete/",{id:id},function (data) {
+        $.post(ctx+"schedule/updateComplete/",{id:id},function (data) {
             $.operate.saveSuccess(data);
             $.treeTable.refresh();
         }).error(function (data) {

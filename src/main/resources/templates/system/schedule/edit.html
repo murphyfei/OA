@@ -132,7 +132,7 @@
         initDeptData: function () {
             var array;
             $.ajaxSettings.async = false;
-            $.post("/dept/getDeptAndUserTreeData", {}, function (data) {
+            $.post(ctx+"dept/getDeptAndUserTreeData", {}, function (data) {
                 array = data;
             })
             return array;
@@ -142,7 +142,7 @@
             var treeObj = $.fn.zTree.getZTreeObj("userTrees");
             var node = treeObj.getNodes(); //可以获取所有的节点
             var nodes = treeObj.transformToArray(node); // 将数据变成简单的 Array 集合
-            $.post("/schedule/selectById/" + scheduleId, {}, function (data) {
+            $.post(ctx+"schedule/selectById/" + scheduleId, {}, function (data) {
                 //从当前条会议中拿出用户信息
                 var users = data.userList;
                 var node2 = "";
@@ -168,7 +168,7 @@
             $.ajax({
                 cache: true,
                 type: "POST",
-                url: "/schedule/editSave",
+                url: ctx+"schedule/editSave",
                 data: {
                     id:$("#id").val(),
                     title:$("#title").val(),

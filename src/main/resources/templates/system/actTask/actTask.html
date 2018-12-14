@@ -56,7 +56,7 @@
 <div th:include="include :: footer"></div>
 
 <script th:inline="javascript">
-    var prefix = "/task";
+    var prefix = ctx+"task";
     var updatedFlag = [[${@permission.hasPermi('"task:update')}]];
     var delFlag = [[${@permission.hasPermi('"task:del')}]];
     $(function () {
@@ -129,12 +129,12 @@
             maxmin: true,
             shade: 0.3,
             title: "查看申请消息",
-            content: "/task/edit/" + formId + "/" + procInstId + "/" + taskId
+            content:ctx+ "task/edit/" + formId + "/" + procInstId + "/" + taskId
         })
     }
 
     function ViewProcess(procInstId) {
-        $.modal.open("审批流程", "/hiActi/HiProcActiList/" + procInstId);
+        $.modal.open("审批流程", ctx+"hiActi/HiProcActiList/" + procInstId);
     }
 
 </script>
